@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Blog</title>
+  <title>Engineer EXP</title>
   <link rel="stylesheet" href="style.css" />
   <!-- FontAwesome İkonlar -->
   <link
@@ -14,16 +14,12 @@
 
   <header>
     <div class="site-name">EngineerEXP</div>
-
-    <!-- Menü -->
     <nav>
       <a href="index.html" class="active">Home</a>
       <a href="articles.html">Articles</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
-
-    <!-- Arama -->
     <div class="search-container">
       <i class="fas fa-search search-icon"></i>
       <input type="text" class="search-input" placeholder="Search..." />
@@ -31,8 +27,22 @@
   </header>
 
   <main style="padding: 30px;">
-    <h1>Welcome to My Blog</h1>
-    <p>This is the home page content.</p>
+    <div class="main_container">
+      <div class="art_box">Box 1</div>
+
+      <div class="pop_box">
+
+        <div class="pop_buttons">
+          <button class="pop_button" id="popular_btn">⭐ Popular</button>
+          <button class="pop_button" id="recent_btn">🕒 Recent</button>
+        </div>
+
+        <div class="pop_div" id="pop_div_area">
+          Hello
+        </div>
+
+      </div>
+    </div>
   </main>
 
   <script src="script.js"></script>

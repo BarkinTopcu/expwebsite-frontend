@@ -1,7 +1,7 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    font-family: 'Poppins', sans-serif;
+    background-color: #EEEEEE;
   }
   
   header {
@@ -36,12 +36,12 @@ body {
   }
   
   nav a:hover {
-    background-color: #333;
+    background-color: #00ADB5;
     color: white;
   }
   
   nav a.active {
-    background-color: #333;
+    background-color: #70dee4;
     color: white;
   }
   
@@ -84,3 +84,81 @@ body {
     right: 60px;
   }
   
+
+  .main_container {
+    display: flex;
+    gap: 20px; /* İsteğe bağlı boşluk */
+    justify-self: center;
+  }
+  
+  .art_box {
+    width: 760px;
+    height: 500px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+/* Arka plan kutusu */
+.pop_box {
+    width: 450px;
+    height: 300px;
+    background: #08D9D6;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Buton grubu */
+  .pop_buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  /* Buton stili */
+  .pop_button {
+    border-radius: 25px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 12px rgba(255, 126, 95, 0.4);
+  }
+  
+  /* Hover efekti */
+  .pop_button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 18px rgba(255, 126, 95, 0.6);
+  }
+  
+  /* Aktif buton */
+  .pop_button.active {
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+    box-shadow: 0 6px 18px rgba(67, 206, 162, 0.6);
+  }
+  
+  /* İçerik alanı */
+  .pop_div {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    width: 350px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+  }
