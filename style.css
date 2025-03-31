@@ -412,3 +412,140 @@ nav a.active {
   flex-wrap: wrap;
   align-items: center;
 }
+
+/* YENİ YER */
+
+.category_section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1200px;        /* Üst container ile aynı genişlik */
+  margin: 60px auto 0 auto; /* Ortala ve üstten boşluk bırak */
+  padding: 0 20px;          /* Mobilde taşma olmasın diye iç boşluk */
+}
+
+.category_block {
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: transform 0.2s ease;
+  background-color: #ffffff; /* default, override edilecek */
+}
+.category_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Kategori renkleri */
+.category_block.sql {
+  background-color: #e3f2fd; /* Açık mavi */
+}
+
+.category_block.ai {
+  background-color: #fff3cd; /* Açık sarı */
+}
+
+.category_block.electronics {
+  background-color: #fdecea; /* Açık kırmızı/turuncu */
+}
+
+.category_block.life {
+  background-color: #e0f7ea; /* Açık yeşil */
+}
+.category_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  text-align: center;
+}
+
+.category_header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+}
+
+
+.nav_arrows {
+  position: absolute;
+  right: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.nav_arrows .arrow {
+  width: 28px;
+  height: 28px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 65%;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  border-radius: 50%;
+}
+
+.nav_arrows .arrow:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: scale(1.1);
+}
+.arrow.prev {
+  background-image: url('images/previous.png');
+}
+
+.arrow.next {
+  background-image: url('images/next.png');
+}
+.category_cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.category_card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+  height: 260px;
+}
+
+.category_card:hover {
+  transform: translateY(-5px);
+}
+
+.category_card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.category_card .meta_line {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 12px 0;
+}
+
+.category_card .title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  padding: 0 12px 12px 12px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

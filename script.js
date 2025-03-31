@@ -125,6 +125,16 @@ searchInput.addEventListener('keydown', (e) => {
   popular_btn.addEventListener('click', loadPopular);
   recent_btn.addEventListener('click', loadRecent);
   
+  function scrollCategory(button, direction) {
+    const cardsContainer = button.closest('.category_block').querySelector('.category_cards');
+    const scrollAmount = 300 * direction; // her tıklamada 300px kay
+
+    cardsContainer.scrollBy({
+      left: scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+
   // Sayfa yüklendiğinde otomatik olarak "Popular"'ı göster
   window.addEventListener('DOMContentLoaded', loadPopular);
 
