@@ -10,10 +10,13 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
+</head>
 <body>
-
   <header>
-    <div class="site-name">EngineerEXP</div>
+    <div class="site-name">
+      <span class="highlight-e">E</span>ngineer
+      <span class="highlight-e">EXP</span>
+    </div>
     <nav>
       <a href="index.html" class="active">Home</a>
       <a href="articles.html">Articles</a>
@@ -28,19 +31,90 @@
 
   <main style="padding: 30px;">
     <div class="main_container">
-      <div class="art_box">Box 1</div>
+      <div class="art_box">
+        <div class="slider-wrapper">
+          <div class="slider" id="slider">
+      
+            <div class="slide position-relative">
+              <a href="article_1.html">
+                <img src="images/sql_1.jpg" alt="Article 1">
+                <div class="article-info">
+                  <div class="meta">
+                    <span class="category ai">AI</span>
+                    <span class="date">Feb 15, 2045</span>
+                    <span class="author">by Mia Chan</span>
+                  </div>
+                  <div class="title">Article 1 Title Article 1 Title Article 1 Title</div>
+                </div>
+              </a>
+            </div>
+      
+            <div class="slide position-relative">
+              <a href="article_2.html">
+                <img src="images/sql_2.png" alt="Article 2">
+                <div class="article-info">
+                  <div class="meta">
+                    <span class="category sql">SQL</span>
+                    <span class="date">Feb 15, 2045</span>
+                    <span class="author">by Mia Chan</span>
+                  </div>
+                  <div class="title">Article 2 Title</div>
+                </div>
+              </a>
+            </div>
 
+            <div class="slide position-relative">
+              <a href="article_3.html">
+                <img src="images/sql_1.png" alt="Article 3">
+                <div class="article-info">
+                  <div class="meta">
+                    <span class="category electronic">Electronics</span>
+                    <span class="date">Feb 15, 2045</span>
+                    <span class="author">by Mia Chan</span>
+                  </div>
+                  <div class="title">Article 2 Title</div>
+                </div>
+              </a>
+            </div>
+
+            <div class="slide position-relative">
+              <a href="article_4.html">
+                <img src="images/sql_1.png" alt="Article 4">
+                <div class="article-info">
+                  <div class="meta">
+                    <span class="category sql">SQL</span>
+                    <span class="date">Feb 15, 2045</span>
+                    <span class="author">by Mia Chan</span>
+                  </div>
+                  <div class="title">Article 2 Title</div>
+                </div>
+              </a>
+            </div>
+      
+            
+          </div>
+          <!-- Diğer slide'lar aynı şekilde -->
+          <div class="slider-arrow left"></div>
+          <div class="slider-arrow right"></div>
+        </div>
+      
+        <!-- NOKTALAR BURADA -->
+        <div class="dots" id="dots">
+          <span class="dot active" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+          <span class="dot" data-index="2"></span>
+          <span class="dot" data-index="3"></span>
+        </div>
+      </div>
+         
       <div class="pop_box">
-
         <div class="pop_buttons">
           <button class="pop_button" id="popular_btn">⭐ Popular</button>
           <button class="pop_button" id="recent_btn">🕒 Recent</button>
         </div>
-
         <div class="pop_div" id="pop_div_area">
           Hello
         </div>
-
       </div>
     </div>
   </main>

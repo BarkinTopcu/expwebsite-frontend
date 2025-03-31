@@ -21,7 +21,7 @@ searchInput.addEventListener('keydown', (e) => {
   const recent_btn = document.getElementById('recent_btn');
   const pop_div_area = document.getElementById('pop_div_area');
   
-  popular_btn.addEventListener('click', () => {
+  function loadPopular() {
     popular_btn.classList.add('active');
     recent_btn.classList.remove('active');
     pop_div_area.innerHTML = `
@@ -32,9 +32,9 @@ searchInput.addEventListener('keydown', (e) => {
         <li>Makale 3</li>
       </ol>
     `;
-  });
+  }
   
-  recent_btn.addEventListener('click', () => {
+  function loadRecent() {
     recent_btn.classList.add('active');
     popular_btn.classList.remove('active');
     pop_div_area.innerHTML = `
@@ -45,4 +45,123 @@ searchInput.addEventListener('keydown', (e) => {
         <li>Makale 3</li>
       </ol>
     `;
+  }
+
+  function loadPopular() {
+    popular_btn.classList.add('active');
+    recent_btn.classList.remove('active');
+    pop_div_area.innerHTML = `
+      <h3>En Çok Tıklanan Makaleler</h3>
+      <ul class="pop_article_list">
+        <li>
+          <a href="article_1.html" class="pop_article">
+            <span class="pop_title">Özberk Özdemir Dünyayıdaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaa</span>
+            <div class="meta_line">
+              <span class="category ai">AI</span>
+              <span class="author">by Mia Chan</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="article_2.html" class="pop_article">
+            <span class="pop_title">Makale 2 Başlığı</span>
+            <div class="meta_line">
+              <span class="category tech">Tech</span>
+              <span class="author">by John Doe</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="article_3.html" class="pop_article">
+            <span class="pop_title">Makale 3 Başlığı</span>
+            <div class="meta_line">
+              <span class="category science">Science</span>
+              <span class="author">by Elif Yılmaz</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    `;
+  }
+  
+  function loadRecent() {
+    recent_btn.classList.add('active');
+    popular_btn.classList.remove('active');
+    pop_div_area.innerHTML = `
+      <h3>En Son Yüklenen Makaleler</h3>
+      <ul class="pop_article_list">
+        <li>
+          <a href="article_4.html" class="pop_article">
+            <span class="pop_title">Makale 4 Başlığı</span>
+            <div class="meta_line">
+              <span class="category ai">AI</span>
+              <span class="author">by Zeynep Kaya</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="article_5.html" class="pop_article">
+            <span class="pop_title">Makale 5 Başlığı</span>
+            <div class="meta_line">
+              <span class="category tech">Tech</span>
+              <span class="author">by Onur Demir</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="article_6.html" class="pop_article">
+            <span class="pop_title">Makale 6 Başlığı</span>
+            <div class="meta_line">
+              <span class="category science">Science</span>
+              <span class="author">by Elif Yılmaz</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    `;
+  }
+  
+  // Event listenerlar
+  popular_btn.addEventListener('click', loadPopular);
+  recent_btn.addEventListener('click', loadRecent);
+  
+  // Sayfa yüklendiğinde otomatik olarak "Popular"'ı göster
+  window.addEventListener('DOMContentLoaded', loadPopular);
+
+  const slider = document.getElementById('slider');
+  const dots = document.querySelectorAll('.dot');
+  let index = 0;
+  const totalSlides = 4;
+  
+  function updateSlider() {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+  }
+  
+  function slideToNext() {
+    index = (index + 1) % totalSlides;
+    updateSlider();
+  }
+  
+  setInterval(slideToNext, 20000);
+  
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      index = parseInt(dot.getAttribute('data-index'));
+      updateSlider();
+    });
   });
+  
+  const leftArrow = document.querySelector('.slider-arrow.left');
+const rightArrow = document.querySelector('.slider-arrow.right');
+
+leftArrow.addEventListener('click', () => {
+  index = (index - 1 + totalSlides) % totalSlides;
+  updateSlider();
+});
+
+rightArrow.addEventListener('click', () => {
+  index = (index + 1) % totalSlides;
+  updateSlider();
+});
