@@ -4,7 +4,7 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #EEEEEE;
+    background-color: #e9ecef;
 }
 
 header {
@@ -17,7 +17,7 @@ header {
 }
 
 .site-name {
-    font-size: 26px;
+    font-size: 33px;
     font-weight: bold;
     color: #333;
     justify-self: start;
@@ -91,6 +91,160 @@ nav a.active {
     color: #007BFF;
     font-weight: bold;
 }
+
+
+
+/* ============== Blog Intro ====================== */
+.blog-intro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 60px 5%;
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow: 
+    5px 5px 10px #bebebe,
+    -5px -5px 10px #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.intro-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.intro-image {
+  flex: 1;
+  min-width: 300px; /* 600px'den daha esnek bir değere düşürdüm */
+  max-width: 100%; /* Ekstra güvenlik için eklendi */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  align-self: flex-start; /* Bu satır çok önemli - üst hizalamayı sağlar */
+}
+
+.intro-image img {
+  width: 100%;
+  height: auto;
+  display: block; /* Resmin altındaki gizli boşluğu kaldırır */
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.intro-image img:hover {
+  transform: scale(1.02);
+}
+
+.image-caption {
+  text-align: center;
+  padding: 12px;
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #212529;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: #495057;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+.tagline::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #4dabf7;
+}
+
+.intro-text {
+  column-width: 400px;
+  column-gap: 40px;
+  line-height: 1.7;
+  color: #343a40;
+  max-width: 600px;
+}
+
+.highlight {
+  background: linear-gradient(120deg, #d0ebff 0%, #a5d8ff 100%);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.cta-box {
+  margin-top: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border-left: 4px solid #4dabf7;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #4dabf7;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #339af0;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(77, 171, 247, 0.4);
+}
+
+@media (max-width: 768px) {
+  .blog-intro {
+      flex-direction: column;
+      padding: 40px 5%;
+  }
+  
+  h1 {
+      font-size: 2rem;
+  }
+  .intro-text {
+    column-width: auto;
+}
+}
+
+.justified-text {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  margin-bottom: 1.2em;
+  line-height: 1.7;
+}
+
+.intro-text p {
+  text-align: justify;
+  text-justify: inter-word;
+  word-spacing: -0.05em; /* Kelimeler arası boşluğu dengeler */
+  margin-bottom: 1.2em;
+  line-height: 1.7;
+  hyphens: none; /* Tirelemeyi kapatıyoruz */
+}
+
+/* Son paragrafta boşluk ayarı */
+.cta-box p {
+  margin-bottom: 0.8em;
+}
+
 /* ############################## MAIN ARTICLES  #####################################*/
 .main_container {
     display: flex;
@@ -358,7 +512,7 @@ nav a.active {
 }
 
 .pop_button.active {
-  background-color: #1192e9;
+  background-color: #4dabf7;
   color: white;
 }
 
@@ -413,6 +567,90 @@ nav a.active {
   align-items: center;
 }
 
+
+/* =================== SÖZ =================== */
+
+/* TEMEL PARALLAX YAPISI */
+.parallax-container {
+  position: relative;
+  height: 65vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.parallax-image {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://source.unsplash.com/1600x900/?universe');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  filter: brightness(0.7) contrast(1.2);
+  transform: scale(1.1);
+  z-index: -1;
+}
+
+.quote-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 2rem;
+}
+
+.quote-box {
+  background: rgba(15, 23, 42, 0.85);
+  padding: 3rem 4rem;
+  border-radius: 12px;
+  border-left: 5px solid #4dabf7;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+}
+
+.quote-text {
+  font-family: 'Georgia', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+.quote-author {
+  font-family: 'Georgia', serif;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-style: italic;
+  color: #d0ebff;
+  margin-top: 1.5rem;
+  text-align: right;
+}
+
+/* MOBIL UYUMLULUK */
+@media (max-width: 768px) {
+  .parallax-container {
+      height: 70vh;
+  }
+  
+  .parallax-image {
+      background-attachment: scroll;
+      transform: scale(1.2);
+  }
+  
+  .quote-box {
+      padding: 2rem;
+  }
+  
+  .quote-text {
+      font-size: 1.8rem;
+  }
+  
+  .quote-author {
+      font-size: 1.2rem;
+  }
+}
+
 /* YENİ YER */
 
 .category_section {
@@ -422,38 +660,35 @@ nav a.active {
   max-width: 1200px;        /* Üst container ile aynı genişlik */
   margin: 60px auto 0 auto; /* Ortala ve üstten boşluk bırak */
   padding: 0 20px;          /* Mobilde taşma olmasın diye iç boşluk */
+  
 }
 
 .category_block {
-  border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 12px 12px 12px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
   gap: 20px;
   transition: transform 0.2s ease;
   background-color: #ffffff; /* default, override edilecek */
 }
-.category_card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-}
+
 
 /* Kategori renkleri */
 .category_block.sql {
-  background-color: #e3f2fd; /* Açık mavi */
+  background-color: #ffffff; /* Açık mavi */
 }
 
 .category_block.ai {
-  background-color: #fff3cd; /* Açık sarı */
+  background-color: #ffffff; /* Açık sarı */
 }
 
 .category_block.electronics {
-  background-color: #fdecea; /* Açık kırmızı/turuncu */
+  background-color: #ffffff; /* Açık kırmızı/turuncu */
 }
 
 .category_block.life {
-  background-color: #e0f7ea; /* Açık yeşil */
+  background-color: #ffffff; /* Açık yeşil */
 }
 .category_header {
   display: flex;
@@ -504,11 +739,17 @@ nav a.active {
   background-image: url('images/next.png');
 }
 .category_cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  display: flex;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  overflow-y: visible;
   gap: 20px;
+  scrollbar-width: none;
+  padding-top: 10px;
 }
-
+.category_cards::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
 .category_card {
   background-color: #fff;
   border-radius: 8px;
@@ -517,7 +758,8 @@ nav a.active {
   display: flex;
   flex-direction: column;
   transition: transform 0.2s ease;
-  height: 260px;
+  height: 250px;
+  flex: 0 0 calc(50% - 10px);
 }
 
 .category_card:hover {
@@ -533,10 +775,33 @@ nav a.active {
 
 .category_card .meta_line {
   display: flex;
-  gap: 10px;
-  align-items: center;
-  padding: 8px 12px 0;
+  gap: 8px;
+  padding: 10px 12px 0;
+  flex-wrap: wrap;
 }
+
+.category_card .author {
+  background-color: #343a40;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: none;
+  display: inline-block;
+}
+
+.category_card .date {
+  background-color: #6c757d;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: none;
+  display: inline-block;
+}
+
 
 .category_card .title {
   font-size: 15px;
@@ -548,4 +813,138 @@ nav a.active {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+
+
+
+
+/* ================ Footer ===================== */
+/* TEMEL FOOTER STİLİ */
+.site-footer {
+  margin-top: 50px;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 40px 0 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* LOGO STİLİ */
+.footer-brand img {
+  filter: brightness(0) invert(1); /* Logo rengini beyaz yapar */
+  margin-bottom: 20px;
+}
+
+/* HIZLI LİNKLER */
+.footer-links {
+  display: flex;
+  gap: 50px;
+}
+
+.footer-column h3 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.footer-column h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 30px;
+  height: 2px;
+  background: #3498db;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  margin-bottom: 8px;
+}
+
+.footer-column a {
+  color: #bdc3c7;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: #3498db;
+}
+
+/* SOSYAL MEDYA İKONLARI */
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-links a {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.social-links a:hover {
+  background-color: #3498db;
+  transform: translateY(-3px);
+}
+
+/* COPYRIGHT */
+.copyright {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #bdc3c7;
+  font-size: 14px;
+}
+
+.copyright strong {
+  color: #fff;
+}
+
+/* Font Awesome için */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+  
+  .footer-links {
+      flex-direction: column;
+      gap: 30px;
+      margin: 20px 0;
+  }
+  
+  .footer-column h3::after {
+      left: 50%;
+      transform: translateX(-50%);
+  }
 }

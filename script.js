@@ -175,3 +175,33 @@ rightArrow.addEventListener('click', () => {
   index = (index + 1) % totalSlides;
   updateSlider();
 });
+
+function scrollCategory(button, direction) {
+  const categoryBlock = button.closest('.category_block');
+  const cardContainer = categoryBlock.querySelector('.category_cards');
+  const cardWidth = cardContainer.querySelector('.category_card').offsetWidth + 20; // 20: gap
+  cardContainer.scrollBy({
+    left: direction * cardWidth,
+    behavior: 'smooth'
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const parallax = document.querySelector('.parallax-image');
+
+  function handleParallax() {
+    const scrollY = window.scrollY;
+    const section = parallax.parentElement;
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+
+    // Görüntü ekrandaysa işlem yap
+    if (scrollY + window.innerHeight > sectionTop && scrollY < sectionTop + sectionHeight) {
+      const offset = (scrollY - sectionTop) * 0.3; // kayma oranı
+      parallax.style.transform = `translateY(${offset}px) scale(1.1)`;
+    }
+  }
+
+  window.addEventListener('scroll', handleParallax);
+  handleParallax(); // sayfa yüklenirken de çalışsın
+});
